@@ -207,13 +207,13 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_XFRM=y" >> .config
 
         ##包含网络 QoS 调度模块。约 0.2MB
-        echo "CONFIG_FIRMWARE_INCLUDE_QOS=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_QOS=n" >> .config
 
         ## 包含用于流量整形的 IMQ 模块（会略微降低性能）。约 0.02MB
-        echo "CONFIG_FIRMWARE_INCLUDE_IMQ=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_IMQ=m" >> .config
 
         ##包含用于流量整形的 IFB 模块。约 0.03MB
-        echo "CONFIG_FIRMWARE_INCLUDE_IFB=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_IFB=n" >> .config
 
         ##包含 IPSet 工具和内核模块。约 0.4MB
         #echo "CONFIG_FIRMWARE_INCLUDE_IPSET=y" >> .config
@@ -297,7 +297,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FIREFLY=n" >> .config
 
         ##为 Minidlna 和 Firefly 包含 ffmpeg 0.11.x（替代 0.6.x）。约 0.1MB
-        echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n" >> .config
 
 
 
@@ -408,8 +408,8 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CLOUDFLARE=y" >> .config #CF-ddns 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_EASYTIER=y" >> .config #EasyTier 约50k
         
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIST=n" >> .config #ALIST文件列表 约80k
-        echo "CONFIG_FIRMWARE_INCLUDE_WXSEND=n" >> .config #微信推送 约50k
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIST=y" >> .config #ALIST文件列表 约80k
+        echo "CONFIG_FIRMWARE_INCLUDE_WXSEND=y" >> .config #微信推送 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_UUPLUGIN=n" >> .config #网易UU加速器 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config #阿里云盘 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_WYY=n" >> .config #网易云解锁 约80k 已删除 /trunk/user/httpd/common.h
