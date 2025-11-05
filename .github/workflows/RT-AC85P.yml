@@ -1,5 +1,5 @@
 
-name: JCG-AC860M #原版K2P
+name: RT-AC85P #原版K2P
 
 on: 
   workflow_dispatch:
@@ -46,7 +46,7 @@ jobs:
         sed -i 's/mtd_part_size=65536/mtd_part_size=5242880/g' /opt/rt-n56u/trunk/user/scripts/mtd_storage.sh
     - name: Build Firmware
       env:
-        TNAME: JCG-AC860M
+        TNAME: RT-AC85P
         KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -297,7 +297,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FIREFLY=n" >> .config
 
         ##为 Minidlna 和 Firefly 包含 ffmpeg 0.11.x（替代 0.6.x）。约 0.1MB
-        echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n" >> .config
 
 
 
@@ -408,12 +408,12 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CLOUDFLARE=y" >> .config #CF-ddns 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_EASYTIER=y" >> .config #EasyTier 约50k
         
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIST=n" >> .config #ALIST文件列表 约80k
-        echo "CONFIG_FIRMWARE_INCLUDE_WXSEND=n" >> .config #微信推送 约50k
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIST=y" >> .config #ALIST文件列表 约80k
+        echo "CONFIG_FIRMWARE_INCLUDE_WXSEND=y" >> .config #微信推送 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_UUPLUGIN=n" >> .config #网易UU加速器 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config #阿里云盘 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_WYY=n" >> .config #网易云解锁 约80k 已删除 /trunk/user/httpd/common.h
-        echo "CONFIG_FIRMWARE_INCLUDE_BAFA=n" >> .config #巴法云 约90k
+        echo "CONFIG_FIRMWARE_INCLUDE_BAFA=y" >> .config #巴法云 约90k
         echo "CONFIG_FIRMWARE_INCLUDE_CADDY=y" >> .config #在线文件管理服务不占空间(4.0kb左右)
         echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config #smartdns
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #adguardhome不占空间(7.2kb左右)
@@ -441,7 +441,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: JCG-AC860M-3.4
+        name: RT-AC85P-3.4
         path: /opt/images
 
     - name: Release
