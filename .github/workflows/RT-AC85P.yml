@@ -225,7 +225,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CIFS=y" >> .config
 
         ##包含 NTFS-3G FUSE 驱动（替代 Paragon 的 "ufsd" 驱动）。约 0.4MB
-        echo "CONFIG_FIRMWARE_INCLUDE_NTFS_3G=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_NTFS_3G=y" >> .config
 
         ##包含 LPR 打印机守护程序。约 0.12MB
         echo "CONFIG_FIRMWARE_INCLUDE_LPRD=y" >> .config
@@ -255,7 +255,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FTPD=y" >> .config
 
         ##包含替代的 L2TP 控制客户端 RP-L2TP。约 0.1MB
-        echo "CONFIG_FIRMWARE_INCLUDE_RPL2TP=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_RPL2TP=y" >> .config
 
         ##包含 EAP-TTLS 和 EAP-PEAP 认证支持。openssl 约 1.2MB，wpa_supplicant 约 0.04MB
         echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y" >> .config
@@ -372,8 +372,8 @@ jobs:
          ## iperf3测速软件
         echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config
 
-        ## DUMP1090
-        echo "CONFIG_FIRMWARE_INCLUDE_DUMP1090=y" >> .config
+        ## DUMP1090 RTLSDR解码器
+        echo "CONFIG_FIRMWARE_INCLUDE_DUMP1090=n" >> .config
 
         ## RTL_SDR
         echo "CONFIG_FIRMWARE_INCLUDE_RTL_SDR=n" >> .config
